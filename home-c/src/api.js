@@ -7,6 +7,8 @@ export default {
     getUstawieniaRejestrOpis: ()=>
       axios.get("/api/ustawienia/rejestrOpis").then(res=>res.data.ustawienia)
   }
+
+  
   // user: {
   //   login: credentials =>
   //     axios.post("/api/auth", { credentials }).then(res => res.data.user),
