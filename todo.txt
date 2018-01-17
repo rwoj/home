@@ -1,0 +1,4 @@
+
+e:\db\rethinkdb\rethinkdb --directory e:\db\rethinkdb\rethinkdb_data
+
+
