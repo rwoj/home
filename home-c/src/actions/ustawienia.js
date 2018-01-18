@@ -6,18 +6,11 @@ export const pobraneUstawienia = data => ({
   data
 });
 
-const cos = [{
-    "id": 1 ,
-    "nazwaLokalu":  "WC" ,
-    "poziom":  "parter"
-  }, {
-    "id": 2 ,
-    "nazwaLokalu":  "Wiatrołap" ,
-    "poziom":  "parter"
-    }]
-export const wczytajUstawienia = () => dispatch =>
-  //  dispatch(pobraneUstawienia({lokale: cos}))
+export const wczytajUstawieniaLokale = () => dispatch =>
         api.ustawienia.getUstawieniaLokale().then(ustawienia => dispatch(pobraneUstawienia(ustawienia)))
+export const wczytajUstawieniaRejestOpis = () => dispatch =>
+        api.ustawienia.getUstawieniaRejestrOpis().then(rejestrOpis => dispatch(pobraneUstawienia(rejestrOpis)))
+
 export const zmienUstawienia = ()=>({cos:2})
 
 

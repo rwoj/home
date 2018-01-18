@@ -1,29 +1,51 @@
 import React from 'react'
-import { Container, Row} from 'reactstrap'
+import PropTypes from "prop-types";
+import { Container, Row, Button} from 'reactstrap'
 import {connect} from 'react-redux'
 import LokalForm from '../forms/LokalForm'
+import RejestrOpisForm from '../forms/RejestrOpisForm'
 import {zmienUstawienia} from '../../actions/ustawienia'
+import {lokaleSelector, rejestrOpisSelector} from '../../reducers/ustawienia'
 
 class Ustawienia extends React.Component{
   state={
-    lokale: [],
-    // rejestry: []
+    czyLokale: true
   }
-
-  componentDidMount(){
-    // wczytajUstawienia()
-  }
+  przelacz = ()=> this.setState({czyLokale: !this.state.czyLokale})
   render(){
-    const lokaleForm=this.state.lokale.map(lokal=>
-    <LokalForm key={lokal.id} lokal={lokal}/>
-    )
+    const {czyLokale}=this.state
+    const {lokale, rejestrOpis} = this.props
+    const lokaleForm=lokale.map((lokal) => <LokalForm key={lokal.id} lokal={lokal}/>)
+    const rejestrOpisForm=rejestrOpis.map((rejOpis) => <RejestrOpisForm key={rejOpis.id} rejOpis={rejOpis}/>)
+    
     return (
-      <Container>
-        <Row>Wybierz ustawienia: (Id lokalu, Nazwa Lokalu, pietro) </Row>
-        {lokaleForm}
+      <Container>Przelacz pomiedzy Lokale/Opis rejestru:
+      <Button onClick={this.przelacz}>{czyLokale?'Lokale':'Opis rejestru'}</Button>
+        {czyLokale && <Row> (Id lokalu, Nazwa Lokalu, pietro) </Row>} 
+        {czyLokale && lokaleForm}
+        {!czyLokale && <Row> (Id, adres, nazwa) </Row>} 
+        {!czyLokale && rejestrOpisForm}
       </Container>
     )}
 }
+Ustawienia.propTypes = {
+  lokale: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    nazwaLokalu: PropTypes.string,
+    pietro: PropTypes.string
+  })).isRequired, 
+  rejestrOpis: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    adres: PropTypes.number,
+    nazwa: PropTypes.string
+  })).isRequired
+}
 
+function mapStateToProps (state){
+  return {
+    lokale: lokaleSelector(state),
+    rejestrOpis: rejestrOpisSelector(state)
+  }
+}
 
-export default connect(null, {zmienUstawienia})(Ustawienia)
+export default connect(mapStateToProps, {zmienUstawienia})(Ustawienia)

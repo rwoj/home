@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from "prop-types";
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import {connect} from 'react-redux'
-import {wczytajUstawienia} from '../actions/ustawienia'
+import {wczytajUstawieniaLokale, wczytajUstawieniaRejestOpis} from '../actions/ustawienia'
 
 
 class TopNavigation extends React.Component{
-  state = {
-    loading: true
-  }
+  // state = {
+  //   loading: true
+  // }
   componentDidMount(){
-    this.props.wczytajUstawienia()
+    this.props.wczytajUstawieniaLokale()
+    this.props.wczytajUstawieniaRejestOpis()
   }
 
   render(){
@@ -33,7 +34,8 @@ class TopNavigation extends React.Component{
   }
 }
 TopNavigation.propTypes = {
-  wczytajUstawienia: PropTypes.func.isRequired
+  wczytajUstawieniaLokale: PropTypes.func.isRequired, 
+  wczytajUstawieniaRejestOpis: PropTypes.func.isRequired
 }
 
 function mapStateToProps (state){
@@ -42,4 +44,4 @@ function mapStateToProps (state){
   }
 }
 
-export default connect(mapStateToProps, {wczytajUstawienia})(TopNavigation)
+export default connect(mapStateToProps, {wczytajUstawieniaLokale, wczytajUstawieniaRejestOpis})(TopNavigation)

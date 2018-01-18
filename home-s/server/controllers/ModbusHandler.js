@@ -44,12 +44,12 @@ export default function ModbusHandler(client) {
     })
   }
   this.getUstawieniaLokali=(req, res)=>{
-    r.table('lokale').run()
+    r.table('lokale').orderBy('id').run()
       .then(lokale=> res.json({ustawienia:{lokale}}))
       .error((err)=>console.error(err)) 
   }
   this.getUstawieniaRejestrOpis=(req, res)=>{
-    r.table('rejestrOpis').run()
+    r.table('rejestrOpis').orderBy('id').run()
       .then(rejestrOpis=> res.json({ustawienia:{rejestrOpis}}))
       .error((err)=>console.error(err)) 
   }

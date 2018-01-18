@@ -1,3 +1,4 @@
+import { createSelector } from "reselect";
 import {ODCZYT_REJESTRU} from "../actions/types"
 
 export default function register(state={}, action={}) {
@@ -8,3 +9,9 @@ export default function register(state={}, action={}) {
       return state;
   }
 }
+
+export const registerHashSelector = state => state.register;
+
+export const registerSelector = createSelector(registerHashSelector, hash =>
+  Object.values(hash)
+);

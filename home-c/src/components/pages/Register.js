@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {registerSelector} from '../../reducers/register'
 
 class Register extends React.Component{
   render(){
     const {register} = this.props
-    console.log (register, register.length);
+    // console.log (register, register.length);
 
     const registerList = register.length===0? <li>loading...</li> :
       register.map( (x)=>(
@@ -19,9 +20,9 @@ class Register extends React.Component{
   }
 }
 
-function mapStateToProps (state,props){
+function mapStateToProps (state){
   return {
-    register: Object.values(state.register)
+    register: registerSelector(state)
   }
 }
 
