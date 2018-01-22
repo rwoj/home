@@ -1,9 +1,10 @@
 import ModbusHandler from "../controllers/ModbusHandler"
 
 const path=`${process.cwd()}/server`;
+// const routes=(app, client)=>{
 
-const routes=(app, client)=>{
-  const modHandler =  new ModbusHandler(client)
+const routes=(app)=>{
+  const modHandler =  new ModbusHandler()
   modHandler.init()
 
   app.get("/", (req, res) => {

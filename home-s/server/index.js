@@ -1,13 +1,15 @@
-import express from "express";
-const app = express();
+import express from "express"
 import routes from "./routes"
 import config from "./config/config"
-import modbus from "jsmodbus"
+// import modbus from "jsmodbus"
 import horizon from '@horizon/server'
 
-const client = modbus.client.tcp.complete(config.modbus).connect()
+const app = express();
 
-routes(app, client);
+// const client = modbus.client.tcp.complete(config.modbus).connect()
+
+// routes(app, client);
+routes(app);
 
 const port = process.env.PORT || 8081
 const httpServer = app.listen(port, () => console.log(`Running on localhost: ${port}`));

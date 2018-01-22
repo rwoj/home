@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dbstart": "e:/db/rethinkdb/rethinkdb --directory e:/db/rethinkdb/rethinkdb_data",
-    "seed": "babel-node server/seed/seed.js",
+    "seed": "babel-node seed/seed.js",
     "start": "nodemon --exec babel-node -- server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

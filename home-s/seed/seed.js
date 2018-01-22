@@ -3,6 +3,9 @@ import config from "../server/config/config"
 
 const r = rethinkdbdash(config.db)
 
+// REJESTR - ODCZYT
+
+
 // LOKALE
 // r.tableCreate('lokale').run()
 // r.tableDrop('lokale').run()
@@ -17,6 +20,10 @@ const r = rethinkdbdash(config.db)
 // import rejestrOpis from './rejestrOpis'
 // r.table('rejestrOpis').insert(rejestrOpis).run()
 
+// Odczyty
+// r.tableCreate('wyjscia')
+// r.tableCreate('wy_satel')
+// r.tableCreate('wy_temp')
 
 // stare...
 // r.tableCreate('') ; r.tableDrop('')

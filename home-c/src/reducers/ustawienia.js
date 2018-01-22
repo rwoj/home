@@ -20,3 +20,9 @@ const rejestrOpisHashSelector = state => !state.ustawienia.rejestrOpis? [] : sta
 export const rejestrOpisSelector = createSelector(rejestrOpisHashSelector, hash =>
   Object.values(hash)
 );
+
+// const swiatlaHashSelector = state => !state.ustawienia.rejestrOpis? [] : state.ustawienia.rejestrOpis
+
+export const swiatlaRejestrOpisSelector = createSelector(rejestrOpisHashSelector, hash =>
+  hash.filter((x)=>x.rodzaj==='swiatlo')
+)
