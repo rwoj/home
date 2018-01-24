@@ -4,17 +4,15 @@ import { Form, FormGroup, Button, Input } from 'reactstrap';
 class RejestrOpisForm extends React.Component {
   state = {
     data: {
-      id: this.props.rejOpis.id,
       adres: this.props.rejOpis.adres,
       nazwa: this.props.rejOpis.nazwa,
       nazwa_zm: this.props.rejOpis.nazwa_zm,
       lok_id: this.props.rejOpis.lok_id,
-      pokoj: this.props.rejOpis.pokoj,
       rejestr: this.props.rejOpis.rejestr,
       rodzaj: this.props.rejOpis.rodzaj,
       ster_wy: this.props.rejOpis.ster_wy
     },
-    loading: false,
+    // loading: false,
     errors: {}
   };
 
@@ -58,20 +56,6 @@ class RejestrOpisForm extends React.Component {
       <div>
         <Form inline onSubmit={this.onSubmit}>
           <FormGroup className="m-1">
-            {/* <label htmlFor="id">Id</label> */}
-            <Input
-              type="text"
-              id="id"
-              name="id"
-              value={data.id}
-              onChange={this.onChange}
-              className={
-                errors.id ? "form-control is-invalid" : "form-control"
-              }
-            />
-          </FormGroup>
-
-          <FormGroup className="m-1">
             {/* <label htmlFor="nazwaLokalu">nazwa</label> */}
             <Input
               type="text"
@@ -99,10 +83,24 @@ class RejestrOpisForm extends React.Component {
             />
           </FormGroup>
 
+          <FormGroup className="m-1">
+            {/* <label htmlFor="id">Id</label> */}
+            <Input
+              type="text"
+              id="rodzaj"
+              name="rodzaj"
+              value={data.rodzaj}
+              onChange={this.onChange}
+              className={
+                errors.rodzaj ? "form-control is-invalid" : "form-control"
+              }
+            />
+          </FormGroup>
+
           <Button >
             Zapisz zmiany
           </Button>
-         {data.lok_id} {data.pokoj} {data.nazwa_zm} {data.rejestr} {data.rodzaj} {data.ster_wy}
+         {data.nazwa_zm} | {data.rejestr} | {data.ster_wy}
             <div >{errors.id}</div>
             <div>{errors.poziom}</div>
             <div>{errors.nazwaLokalu}</div>

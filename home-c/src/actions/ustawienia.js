@@ -1,15 +1,17 @@
-import { ODCZYT_USTAWIEN, ZMIANA_USTAWIEN } from "./types";
-import api from "../api";
+import { ODCZYT_USTAWIEN} from "./types"
+// , ZMIANA_USTAWIEN 
+// import api from "../api";
 
 export const pobraneUstawienia = data => ({
   type: ODCZYT_USTAWIEN,
   data
 });
 
-export const wczytajUstawieniaLokale = () => dispatch =>
-        api.ustawienia.getUstawieniaLokale().then(ustawienia => dispatch(pobraneUstawienia(ustawienia)))
-export const wczytajUstawieniaRejestOpis = () => dispatch =>
-        api.ustawienia.getUstawieniaRejestrOpis().then(rejestrOpis => dispatch(pobraneUstawienia(rejestrOpis)))
+// export const wczytajUstawieniaLokale = () => dispatch =>
+//         api.ustawienia.getUstawieniaLokale().then(ustawienia => dispatch(pobraneUstawienia(ustawienia)))
+// export const wczytajUstawieniaRejestOpis = () => dispatch =>
+//         api.ustawienia.getUstawieniaRejestrOpis().then(rejestrOpis => dispatch(pobraneUstawienia(rejestrOpis)))
+
 
 export const zmienUstawienia = ()=>({cos:2})
 

@@ -10,8 +10,21 @@ export default function register(state={}, action={}) {
   }
 }
 
-export const registerHashSelector = state => state.register;
+const wyjsciaHashSelector = state => state.register.wyjscia?state.register.wyjscia:[]
 
-export const registerSelector = createSelector(registerHashSelector, hash =>
-  Object.values(hash)
-);
+export const wyjsciaSelector = createSelector(wyjsciaHashSelector, hash =>
+  hash
+)
+
+const wySatelHashSelector = state => state.register.wySatel?state.register.wySatel:[];
+
+export const wySatelSelector = createSelector(wySatelHashSelector, hash =>
+  hash
+)
+
+const wyTempHashSelector = state => state.register.wyTemp?state.register.wyTemp:[];
+
+export const wyTempSelector = createSelector(wyTempHashSelector, hash =>
+  hash
+)
+

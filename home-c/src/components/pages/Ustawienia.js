@@ -23,7 +23,7 @@ class Ustawienia extends React.Component{
       <Button onClick={this.przelacz}>{czyLokale?'Lokale':'Opis rejestru'}</Button>
         {czyLokale && <Row> (Id lokalu, Nazwa Lokalu, pietro) </Row>} 
         {czyLokale && lokaleForm}
-        {!czyLokale && <Row> (Id, adres, nazwa) </Row>} 
+        {!czyLokale && <Row> (adres, nazwa, rodzaj | nazwa zmiennej | rejestr | ster/wy) </Row>} 
         {!czyLokale && rejestrOpisForm}
       </Container>
     )}
@@ -35,7 +35,6 @@ Ustawienia.propTypes = {
     pietro: PropTypes.string
   })).isRequired, 
   rejestrOpis: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
     adres: PropTypes.number,
     nazwa: PropTypes.string
   })).isRequired
