@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Button, Input } from 'reactstrap';
+import api from '../../api'
 
 class RejestrOpisForm extends React.Component {
   state = {
@@ -10,8 +11,10 @@ class RejestrOpisForm extends React.Component {
       lok_id: this.props.rejOpis.lok_id,
       rejestr: this.props.rejOpis.rejestr,
       rodzaj: this.props.rejOpis.rodzaj,
-      ster_wy: this.props.rejOpis.ster_wy
+      ster_wy: this.props.rejOpis.ster_wy,
+      wartosc: 0,
     },
+    value: 0,
     // loading: false,
     errors: {}
   };
@@ -21,13 +24,13 @@ class RejestrOpisForm extends React.Component {
       data: { ...this.state.data, [e.target.name]: e.target.value }
     });
 
-  onSubmit = e => {
+   onSubmit = e => {
     e.preventDefault();
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     // if (Object.keys(errors).length === 0) {
       // this.setState({ loading: true });
-      // console.log(this.state.data)
+      console.log(this.state.data)
       // const that=this
       // setTimeout(()=>that.setState({loading: false}), 3000)
       // this.props
@@ -48,6 +51,16 @@ class RejestrOpisForm extends React.Component {
 
     return errors;
   };
+  handleZmiana= () =>{
+    const val=this.state.value===0?1:0
+    api.rejestr.wyslijZmiane(this.state.data.adres, val)
+    this.setState({value: val})
+  }
+  handleZmianaTemp= () =>{
+    // const val=this.state.value===0?1:0
+    api.rejestr.wyslijZmianeTemp(this.state.data.adres, this.state.data.wartosc)
+    // this.setState({value: val})
+  }
 
   render() {
     const { data, errors } = this.state;
@@ -105,7 +118,22 @@ class RejestrOpisForm extends React.Component {
             <div>{errors.poziom}</div>
             <div>{errors.nazwaLokalu}</div>
         </Form>
-        
+          <Button onClick={this.handleZmiana}>
+            Wyslij zmiane Wy
+          </Button>
+          <Input
+              type="text"
+              id="wartosc"
+              name="wartosc"
+              value={data.wartosc}
+              onChange={this.onChange}
+              className={
+                errors.wartosc ? "form-control is-invalid" : "form-control"
+              }
+            />
+          <Button onClick={this.handleZmianaTemp}>
+            Wyslij zmiane Temp
+          </Button>
     </div>
 
     );

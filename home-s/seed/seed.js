@@ -13,6 +13,10 @@ const r = rethinkdbdash(config.db)
 // import dom from './dom'
 // r.table('lokale').insert(dom.lokale).run()
 
+// import konfiguracja from './konfiguracja'
+// r.table('konfig').insert(konfiguracja.konfig).run()
+// r.table('konfigTemp').insert(konfiguracja.konfigTemp).run()
+
 // REJESTRY
 // r.tableCreate('rejestrOpis').run()
 // r.tableDrop('rejestrOpis').run()

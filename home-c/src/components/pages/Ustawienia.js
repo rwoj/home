@@ -9,14 +9,15 @@ import {lokaleSelector, rejestrOpisSelector} from '../../reducers/ustawienia'
 
 class Ustawienia extends React.Component{
   state={
-    czyLokale: true
+    czyLokale: false
   }
   przelacz = ()=> this.setState({czyLokale: !this.state.czyLokale})
   render(){
     const {czyLokale}=this.state
     const {lokale, rejestrOpis} = this.props
     const lokaleForm=lokale.map((lokal) => <LokalForm key={lokal.id} lokal={lokal}/>)
-    const rejestrOpisForm=rejestrOpis.map((rejOpis) => <RejestrOpisForm key={rejOpis.id} rejOpis={rejOpis}/>)
+    const rejestrOpisForm=rejestrOpis.map((rejOpis) => 
+        <RejestrOpisForm key={rejOpis.id} rejOpis={rejOpis}/>)
     
     return (
       <Container>Przelacz pomiedzy Lokale/Opis rejestru:

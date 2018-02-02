@@ -4,8 +4,18 @@ export default {
   ustawienia: {
     getUstawieniaLokale: ()=>
       axios.get("/api/ustawienia/lokale").then(res=>res.data.ustawienia), 
+    getUstawieniaKonfiguracja: ()=>
+      axios.get("/api/ustawienia/konfiguracja").then(res=>res.data.ustawienia),
     getUstawieniaRejestrOpis: ()=>
       axios.get("/api/ustawienia/rejestrOpis").then(res=>res.data.ustawienia)
+  },
+  rejestr: {
+    wyslijZmiane: (adres, value) => 
+      axios.post("/api/rejestr/wy", {adres, value})
+        .catch(err=>console.log(err)),
+    wyslijZmianeTemp: (adres, value) => 
+        axios.post("/api/rejestr/temp", {adres, value})
+          .catch(err=>console.log(err))
   }
 
   

@@ -1,0 +1,41 @@
+.strona-glowna {
+    background-color: gray;
+}
+.block{
+    background-color: antiquewhite;
+    margin: 5px;
+    border: 2px solid brown;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.block h4 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    /* background-color: aqua; */
+}
+.parter{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: chocolate;
+    margin: 5px;
+    height: 5em;
+    border: 2px solid brown;
+}
+.pietro{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    background-color: chocolate;
+    margin: 5px;
+    height: 5em;
+    border: 2px solid brown;
+}
+.caly-dom{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: chocolate;
+    margin: 5px;
+    height: 3em;
+    border: 2px solid brown;
+}

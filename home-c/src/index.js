@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.css'
 import rootReducer from "./rootReducer";
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -35,6 +36,8 @@ hz('wy_temp').order('id').watch().subscribe(
 )
 api.ustawienia.getUstawieniaLokale()
   .then(ustawienia => store.dispatch(pobraneUstawienia(ustawienia)))
+api.ustawienia.getUstawieniaKonfiguracja()
+  .then(konfiguracja => store.dispatch(pobraneUstawienia(konfiguracja)))
 api.ustawienia.getUstawieniaRejestrOpis()
   .then(rejestrOpis => store.dispatch(pobraneUstawienia(rejestrOpis)))
 

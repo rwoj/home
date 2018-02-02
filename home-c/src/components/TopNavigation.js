@@ -10,6 +10,9 @@ const TopNavigation =()=>
           <NavItem>
             <NavLink href='/rejestr'>Rejestr</NavLink>
           </NavItem>
+          {/* <NavItem>
+            <NavLink href='/konfiguracja'>Konfiguracja</NavLink>
+          </NavItem> */}
           <NavItem>
             <NavLink href='/ustawienia'>Ustawienia</NavLink>
           </NavItem>
