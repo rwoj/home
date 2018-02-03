@@ -179,8 +179,6 @@ function ModbusHandler() {
     console.log(adres, value)
     let buf=Buffer.alloc(4)
     writeIEEE754LEW(buf, value, 0, 23, 4)
-    // ieee754.write(buf, 25, 0, true, 23, 4)
-    // console.log(buf, readIEEE754LEW(buf, 0, 23, 4), ieee754.read(buf, 0, true, 23, 4))
     client.writeMultipleRegisters(adres, buf)
       .then(response=>{
         console.log(response)
