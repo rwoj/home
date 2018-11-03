@@ -46,7 +46,9 @@ class Swiatla extends React.Component{
                     return currentSwiatla.calyDom.push(
                         {...x, swiatlo : swiatloValue})
                         // , swiatloSter: swiatloSterValue })
-            }
+            } else {
+                return null
+            }            
         })
 
         return (

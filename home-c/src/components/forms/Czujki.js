@@ -18,6 +18,8 @@ class Czujki extends React.Component{
             if(x.rodzaj==='czujka'){
                 return currentCzujki.calyDom.push(
                     {...x, czujka : czujkaValue})
+            } else {
+                return null;
             }
         })
 
